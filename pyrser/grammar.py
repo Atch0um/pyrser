@@ -168,6 +168,18 @@ class Grammar(parsing.Parser, metaclass=MetaGrammar):
                 self.__class__.__name__))
         return self._do_parse(entry)
 
+    @classmethod
+    def hook(cls, hook_name=None, erase=False):
+        from pyrser.meta import hook
+
+        return hook(cls, hook_name, erase)
+
+    @classmethod
+    def rule(cls, rule_name=None, erase=False):
+        from pyser.meta import rule
+
+        return rule(cls, rule_name, erase)
+
 
 generated_class = 0
 
